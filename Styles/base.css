@@ -1,0 +1,140 @@
+/* ============================
+   BASIC RESET & DEFAULT STYLE
+============================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f4f4f4;
+  color: #222;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+header, footer {
+  background-color: #1a73e8;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+main {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+section {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+  margin-bottom: 0.5rem;
+}
+
+/* ============================
+   ANIMATED BOX
+============================ */
+.animated-box {
+  width: 100px;
+  height: 100px;
+  background-color: #1a73e8;
+  border-radius: 8px;
+  margin-top: 10px;
+  animation: moveBox 3s infinite alternate ease-in-out;
+}
+
+@keyframes moveBox {
+  from { transform: translateX(0); }
+  to { transform: translateX(100px); }
+}
+
+/* ============================
+   1. DARK / LIGHT MODE
+============================ */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #eaeaea;
+  }
+
+  header, footer {
+    background-color: #222;
+  }
+
+  section {
+    background-color: #1e1e1e;
+    color: #eaeaea;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+  }
+
+  .animated-box {
+    background-color: #bb86fc;
+  }
+}
+
+/* ============================
+   2. REDUCED MOTION
+============================ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .animated-box {
+    background-color: #34a853;
+  }
+}
+
+/* ============================
+   3. HIGH CONTRAST MODE
+============================ */
+@media (prefers-contrast: more) {
+  body {
+    background-color: #000;
+    color: #fff;
+  }
+
+  section {
+    border: 2px solid yellow;
+    background-color: #000;
+  }
+
+  .animated-box {
+    background-color: yellow;
+  }
+}
+
+/* ============================
+   4. PRINT MEDIA QUERY
+============================ */
+@media print {
+  body {
+    background: white;
+    color: black;
+    font-size: 12pt;
+  }
+
+  header, footer {
+    background: none;
+    color: black;
+    border-bottom: 1px solid #333;
+  }
+
+  .animated-box {
+    display: none;
+  }
+
+  section {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}

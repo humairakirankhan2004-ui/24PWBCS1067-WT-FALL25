@@ -1,0 +1,119 @@
+/* RESET AND GLOBALS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #fafafa;
+  color: #333;
+}
+
+.header, .footer {
+  text-align: center;
+  background: #333;
+  color: white;
+  padding: 1.5rem 0;
+}
+
+/* GALLERY GRID */
+.gallery {
+  width: 90%;
+  margin: 30px auto;
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    "p1 p2 p3"
+    "p4 p5 p3"
+    "p6 p7 p8"
+    "p9 p9 p8";
+}
+
+/* INDIVIDUAL GRID AREAS */
+.p1 { grid-area: p1; background-image: url('https://picsum.photos/400/400?random=1'); }
+.p2 { grid-area: p2; background-image: url('https://picsum.photos/400/500?random=2'); }
+.p3 { grid-area: p3; background-image: url('https://picsum.photos/400/600?random=3'); }
+.p4 { grid-area: p4; background-image: url('https://picsum.photos/400/300?random=4'); }
+.p5 { grid-area: p5; background-image: url('https://picsum.photos/400/350?random=5'); }
+.p6 { grid-area: p6; background-image: url('https://picsum.photos/400/400?random=6'); }
+.p7 { grid-area: p7; background-image: url('https://picsum.photos/400/500?random=7'); }
+.p8 { grid-area: p8; background-image: url('https://picsum.photos/400/400?random=8'); }
+.p9 { grid-area: p9; background-image: url('https://picsum.photos/400/450?random=9'); }
+
+/* PHOTO STYLING */
+.photo {
+  position: relative;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  height: 280px;
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+.photo:hover {
+  transform: scale(1.03);
+}
+
+/* HOVER OVERLAY */
+.caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.3s ease;
+}
+
+.photo:hover .caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Tablet */
+@media (max-width: 992px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "p1 p2"
+      "p3 p4"
+      "p5 p6"
+      "p7 p8"
+      "p9 p9";
+  }
+
+  .photo {
+    height: 250px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "p1"
+      "p2"
+      "p3"
+      "p4"
+      "p5"
+      "p6"
+      "p7"
+      "p8"
+      "p9";
+  }
+
+  .photo {
+    height: 220px;
+  }
+}

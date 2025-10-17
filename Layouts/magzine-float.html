@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive CSS Grid Magazine Layout</title>
+
+  <style>
+    /* ===== Global Styles ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f5f6fa;
+      color: #2f3640;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #192a56;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+      color: #dcdde1;
+    }
+
+    main {
+      display: grid;
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+
+    article {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    article:hover {
+      transform: translateY(-5px);
+    }
+
+    article img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    article .content {
+      padding: 1.5rem;
+    }
+
+    article h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+      color: #192a56;
+    }
+
+    article p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    /* ===== Desktop Layout (Asymmetric Grid) ===== */
+    @media (min-width: 1024px) {
+      main {
+        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-areas:
+          "a b c"
+          "a d e";
+      }
+
+      article:nth-child(1) { grid-area: a; }
+      article:nth-child(2) { grid-area: b; }
+      article:nth-child(3) { grid-area: c; }
+      article:nth-child(4) { grid-area: d; }
+      article:nth-child(5) { grid-area: e; }
+
+      header h1 { font-size: 3rem; }
+      article h2 { font-size: 1.8rem; }
+      article p { font-size: 1.1rem; }
+    }
+
+    /* ===== Tablet Layout (Symmetric Grid) ===== */
+    @media (max-width: 1023px) and (min-width: 768px) {
+      main {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+          "a b"
+          "c d"
+          "e e";
+      }
+
+      header h1 { font-size: 2.2rem; }
+      article h2 { font-size: 1.5rem; }
+      article p { font-size: 1rem; }
+    }
+
+    /* ===== Mobile Layout (Single Column) ===== */
+    @media (max-width: 767px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 { font-size: 1.8rem; }
+      header p { font-size: 0.95rem; }
+      article h2 { font-size: 1.3rem; }
+      article p { font-size: 0.95rem; }
+    }
+
+    footer {
+      text-align: center;
+      background-color: #192a56;
+      color: white;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>The Modern Magazine</h1>
+    <p>Exploring design, culture, and innovation</p>
+  </header>
+
+  <main>
+    <article>
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900" alt="Ocean view">
+      <div class="content">
+        <h2>Waves of Change</h2>
+        <p>As global awareness grows, our oceans become the front line of sustainability and innovation.</p>
+      </div>
+    </article>
+
+    <article>
+      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=900" alt="Portrait">
+      <div class="content">
+        <h2>Faces of Creativity</h2>
+        <p>Meet the new generation of artists redefining what it means to create in the digital era.</p>
+      </div>
+    </article>
+
+    <article>
+      <img src="https://images.unsplash.com/photo-1473187983305-f615310e7daa?w=900" alt="Architecture">
+      <div class="content">
+        <h2>Urban Rhythm</h2>
+        <p>Modern architecture blends structure and story — reshaping how we move through cities.</p>
+      </div>
+    </article>
+
+    <article>
+      <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=900" alt="Nature">
+      <div class="content">
+        <h2>Green Horizon</h2>
+        <p>Nature’s balance inspires design — where functionality meets ecological mindfulness.</p>
+      </div>
+    </article>
+
+    <article>
+      <img src="https://images.unsplash.com/photo-1521747116042-5a810fda9664?w=900" alt="Technology">
+      <div class="content">
+        <h2>Digital Pulse</h2>
+        <p>From data to emotion: technology continues to shape the pulse of modern living.</p>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    © 2025 The Modern Magazine. All rights reserved.
+  </footer>
+</body>
+</html>

@@ -1,0 +1,152 @@
+/* ========= holy-grail.css =========
+   Single CSS for Float, Flexbox, Grid demos
+   Keep selectors scoped under .hg-* to avoid collisions.
+   ================================== */
+
+/* Basic reset / base */
+* { box-sizing: border-box; }
+html,body { height: 100%; margin: 0; font-family: Arial, Helvetica, sans-serif; color: #222; }
+.page { padding: 20px; max-width: 1100px; margin: 0 auto; }
+.page-header { text-align: center; margin-bottom: 20px; }
+.lead { color: #555; margin-top: 4px; }
+
+/* Generic method card styling */
+.method { border: 1px solid #e0e0e0; padding: 16px; margin-bottom: 24px; border-radius: 6px; background: #fff; }
+.method h2 { margin-top: 0; color: #1f4b6e; font-size: 1.15rem; }
+
+/* Shared element styles used inside each .hg */
+.hg { border: 1px dashed #ddd; padding: 10px; border-radius: 4px; background: #fafafa; }
+.hg-header, .hg-footer { background: #1f4b6e; color: white; padding: 12px; text-align: center; border-radius: 4px; }
+.hg-body { padding: 12px; margin: 12px 0; }
+
+/* generic block visuals for nav/main/aside */
+.hg-nav, .hg-main, .hg-aside { padding: 12px; background: white; border: 1px solid #e8e8e8; border-radius: 4px; }
+.hg-nav { background: #f1f7fb; }
+.hg-aside { background: #f6f6f6; }
+
+/* ----------------------------
+   1) FLOAT-BASED IMPLEMENTATION
+   selectors prefixed by .hg-float
+   ---------------------------- */
+.hg-float .hg-header {}
+.hg-float .hg-body { overflow: visible; } /* floats inside will flow */
+
+.hg-float .hg-nav {
+  float: left;
+  width: 18%;
+  margin-right: 2%;
+}
+
+.hg-float .hg-aside {
+  float: right;
+  width: 18%;
+  margin-left: 2%;
+}
+
+.hg-float .hg-main {
+  /* fluid center column: remaining space */
+  margin: 0 20%;
+  /* ensure it sits between floats */
+}
+
+/* clearfix for .hg-float container footer/following content */
+.hg-float::after {
+  content: ""; display: table; clear: both;
+}
+
+/* footer already spans below floats courtesy of clearfix */
+
+/* ----------------------------
+   2) FLEXBOX IMPLEMENTATION (mobile-first)
+   selectors prefixed by .hg-flex
+   ---------------------------- */
+.hg-flex .hg-body {
+  display: flex;
+  flex-direction: column; /* mobile-first: stack vertically */
+  gap: 12px;
+}
+
+/* On wide screens convert to columns */
+@media (min-width: 800px) {
+  .hg-flex .hg-body {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .hg-flex .hg-nav { flex: 0 0 18%; order: 0; }
+  .hg-flex .hg-main { flex: 1; order: 1; }
+  .hg-flex .hg-aside { flex: 0 0 18%; order: 2; }
+}
+
+/* ----------------------------
+   3) CSS GRID IMPLEMENTATION
+   selectors prefixed by .hg-grid
+   ---------------------------- */
+.hg-grid .hg-body {
+  display: grid;
+  grid-template-columns: 18% 1fr 18%;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "nav main aside";
+  gap: 12px;
+}
+
+/* assign areas to elements */
+.hg-grid .hg-nav  { grid-area: nav; }
+.hg-grid .hg-main { grid-area: main; }
+.hg-grid .hg-aside{ grid-area: aside; }
+
+/* On small screens stack areas in a single column */
+@media (max-width: 800px) {
+  .hg-grid .hg-body {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "nav"
+      "main"
+      "aside";
+  }
+}
+
+/* ----------------------------
+   Shared responsive adjustments for FLOAT method
+   (floats removed and stacked on small screens)
+   ---------------------------- */
+@media (max-width: 800px) {
+  /* FLOAT: remove floats and make elements full-width */
+  .hg-float .hg-nav,
+  .hg-float .hg-aside,
+  .hg-float .hg-main {
+    float: none;
+    width: 100%;
+    margin: 0 0 12px 0;
+  }
+
+  /* GENERAL: reduce padding a bit on small */
+  .hg-header, .hg-footer { padding: 8px; font-size: 0.95rem; }
+}
+
+/* ----------------------------
+   Visual polish & comparison table
+   ---------------------------- */
+.compare-table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+.compare-table th, .compare-table td { border: 1px solid #e6e6e6; padding: 8px; text-align: left; font-size: 0.95rem; }
+.compare-table thead th { background: #f0f7fb; }
+
+/* small screens: readable table */
+@media (max-width: 600px) {
+  .compare-table, .compare-table thead, .compare-table tbody, .compare-table th, .compare-table td, .compare-table tr {
+    display: block;
+  }
+  .compare-table tr { margin-bottom: 12px; }
+  .compare-table td { border: none; padding-left: 50%; position: relative; }
+  .compare-table td::before {
+    position: absolute; left: 8px; top: 8px; width: 45%; white-space: nowrap;
+    font-weight: 600;
+  }
+  /* small-screen labels (match column order) */
+  .compare-table tbody tr:nth-child(1) td::before { content: "Method"; }
+  .compare-table tbody tr:nth-child(1) td + td::before { content: "Pros"; }
+  .compare-table tbody tr:nth-child(1) td + td + td::before { content: "Cons"; }
+}
+
+/* tiny visual tweaks */
+.hg-main h3 { margin-top: 0; }

@@ -1,0 +1,124 @@
+/* =====================
+   BASIC RESET & STYLES
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+h1, h2 {
+  margin-bottom: 0.5rem;
+}
+
+section {
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+/* =====================
+   BASIC UTILITY CLASSES
+===================== */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.p-1 { padding: 0.5rem; }
+.p-2 { padding: 1rem; }
+.p-3 { padding: 1.5rem; }
+.p-4 { padding: 2rem; }
+
+.m-1 { margin: 0.5rem; }
+.m-2 { margin: 1rem; }
+.m-3 { margin: 1.5rem; }
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+
+.bg-light { background: #fff; }
+.bg-blue { background: #1a73e8; }
+.bg-green { background: #34a853; }
+.bg-orange { background: #fbbc05; }
+.bg-yellow { background: #fce75f; }
+.text-white { color: white; }
+.text-black { color: black; }
+
+/* =====================
+   RESPONSIVE SHOW/HIDE
+===================== */
+.show-sm, .show-md, .show-lg {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .show-sm { display: block; }
+}
+
+@media (min-width: 601px) and (max-width: 992px) {
+  .show-md { display: block; }
+}
+
+@media (min-width: 993px) {
+  .show-lg { display: block; }
+}
+
+/* =====================
+   RESPONSIVE SPACING
+===================== */
+@media (max-width: 600px) {
+  .p-sm-1 { padding: 0.5rem; }
+  .m-sm-1 { margin: 0.5rem; }
+}
+
+@media (min-width: 601px) and (max-width: 992px) {
+  .p-md-2 { padding: 1rem; }
+  .m-md-2 { margin: 1rem; }
+}
+
+@media (min-width: 993px) {
+  .p-lg-4 { padding: 2rem; }
+  .m-lg-4 { margin: 2rem; }
+}
+
+/* =====================
+   RESPONSIVE TEXT ALIGNMENT
+===================== */
+@media (max-width: 600px) {
+  .text-sm-left { text-align: left; }
+}
+
+@media (min-width: 601px) and (max-width: 992px) {
+  .text-md-center { text-align: center; }
+}
+
+@media (min-width: 993px) {
+  .text-lg-right { text-align: right; }
+}
+
+/* =====================
+   FLEXBOX UTILITIES
+===================== */
+.flex-sm-column,
+.flex-md-row,
+.flex-lg-row-reverse {
+  display: flex;
+  gap: 10px;
+}
+
+@media (max-width: 600px) {
+  .flex-sm-column { flex-direction: column; }
+}
+
+@media (min-width: 601px) and (max-width: 992px) {
+  .flex-md-row { flex-direction: row; }
+}
+
+@media (min-width: 993px) {
+  .flex-lg-row-reverse { flex-direction: row-reverse; }
+}

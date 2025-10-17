@@ -1,0 +1,176 @@
+/* BASIC RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* GLOBAL STYLES */
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f4f4f4;
+}
+
+/* HEADER NAVIGATION */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #333;
+  color: white;
+  padding: 15px 25px;
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
+}
+
+.nav-links a:hover {
+  background: #555;
+  transition: 0.3s;
+}
+
+/* DROPDOWN MENU */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background: #444;
+  top: 40px;
+  left: 0;
+  flex-direction: column;
+  min-width: 150px;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: flex;
+}
+
+.dropdown-menu li a {
+  padding: 10px;
+  color: white;
+}
+
+/* HAMBURGER MENU (MOBILE ONLY) */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 200px;
+  background: #222;
+  color: white;
+  height: 100%;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  padding: 12px 20px;
+}
+
+.sidebar a:hover {
+  background: #555;
+}
+
+/* MAIN CONTENT */
+.content {
+  margin-left: 220px;
+  padding: 40px;
+}
+
+/* MOBILE RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  /* Make header stack and nav hidden initially */
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #333;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .nav-links.active {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    top: 0;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .sidebar a {
+    padding: 10px;
+  }
+
+  .content {
+    margin: 0;
+    padding: 20px;
+  }
+
+  /* Dropdown stacks on mobile */
+  .dropdown-menu {
+    position: static;
+    background: #444;
+    width: 100%;
+  }
+}

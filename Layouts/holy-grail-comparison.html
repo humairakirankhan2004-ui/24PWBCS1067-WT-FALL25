@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Holy Grail Layout — 3 Implementations</title>
+  <link rel="stylesheet" href="/Styles/media-queries.css">
+</head>
+<body>
+
+  <header class="page-header">
+    <h1>Holy Grail Layout — Float, Flexbox, Grid (Compare)</h1>
+    <p class="subtitle">Three implementations in one page. Resize to test responsive behavior.</p>
+  </header>
+
+  <!-- FLOAT-BASED IMPLEMENTATION -->
+  <section class="demo-section" id="float-demo">
+    <h2>1. Float-based Implementation (with media queries)</h2>
+    <div class="float-version grail">
+      <div class="hg-header">Header</div>
+
+      <nav class="hg-nav">Nav<br><small>links…</small></nav>
+
+      <main class="hg-main">
+        <h3>Main content</h3>
+        <p>Float-based layout uses floats for columns and a clearfix to contain them. On narrow screens it stacks via media queries.</p>
+        <p>Note: floats were the traditional approach before Flexbox / Grid.</p>
+      </main>
+
+      <aside class="hg-aside">Sidebar<br><small>ads / widgets</small></aside>
+
+      <div class="hg-footer">Footer</div>
+    </div>
+  </section>
+
+  <!-- FLEXBOX IMPLEMENTATION (MOBILE-FIRST) -->
+  <section class="demo-section" id="flex-demo">
+    <h2>2. Flexbox Implementation (mobile-first)</h2>
+    <div class="flex-version grail">
+      <div class="hg-header">Header</div>
+
+      <div class="hg-body">
+        <nav class="hg-nav">Nav</nav>
+        <main class="hg-main">
+          <h3>Main content</h3>
+          <p>This is a mobile-first flexbox approach: default stacks vertically; at wider breakpoints it becomes columns with sticky footer behavior.</p>
+        </main>
+        <aside class="hg-aside">Sidebar</aside>
+      </div>
+
+      <div class="hg-footer">Footer</div>
+    </div>
+  </section>
+
+  <!-- GRID IMPLEMENTATION -->
+  <section class="demo-section" id="grid-demo">
+    <h2>3. CSS Grid Implementation (responsive grid areas)</h2>
+    <div class="grid-version grail">
+      <div class="hg-header">Header</div>
+      <nav class="hg-nav">Nav</nav>
+      <main class="hg-main">
+        <h3>Main content</h3>
+        <p>Grid makes defining semantic areas and rearranging them with media queries simple and expressive.</p>
+      </main>
+      <aside class="hg-aside">Sidebar</aside>
+      <div class="hg-footer">Footer</div>
+    </div>
+  </section>
+
+  <!-- COMPARISON / NOTES -->
+  <section class="demo-section" id="compare">
+    <h2>Comparison & Notes</h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr><th>Approach</th><th>Pros</th><th>Cons</th><th>When to use</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Float-based</td>
+          <td>Works in very old browsers; simple for basic two/three column layouts.</td>
+          <td>Requires clearfix, fragile for complex layouts, harder to reorder, hacky vertical alignment.</td>
+          <td>Legacy support / quick simple pages where Flex/Grid not available.</td>
+        </tr>
+        <tr>
+          <td>Flexbox (mobile-first)</td>
+          <td>Excellent for 1D layouts (row or column), easy vertical alignment and equal-height columns.</td>
+          <td>Not ideal for 2D grids (complex area-based layouts) without extra nesting.</td>
+          <td>Navigation bars, card rows, components where direction may switch with breakpoints.</td>
+        </tr>
+        <tr>
+          <td>CSS Grid</td>
+          <td>Best for 2D layouts, explicit grid areas, easy rearrangement with media queries.</td>
+          <td>Learning curve for complex templates; older browsers (very old) may lack full support.</td>
+          <td>Complex page layouts (holy grail, magazine, dashboards) where placing elements across rows/cols is needed.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Quick recommendations</h3>
+    <ul>
+      <li>Use Grid for page-level 2D layout and large templates.</li>
+      <li>Use Flexbox inside components (cards, navs, footers) for 1D alignment.</li>
+      <li>Use floats only for legacy compatibility; otherwise prefer Flexbox/Grid.</li>
+    </ul>
+
+    <h3>How to test</h3>
+    <ol>
+      <li>Open this file and resize your browser (desktop → tablet → mobile widths).</li>
+      <li>Observe: float demo stacks (media query), flex starts stacked then becomes columns, grid rearranges areas.</li>
+      <li>Inspect with devtools to see computed layouts.</li>
+    </ol>
+  </section>
+
+  <footer class="page-footer">
+    <p>Prepared for LAB05 — Holy Grail comparison</p>
+  </footer>
+
+</body>
+</html>

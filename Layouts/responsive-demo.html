@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Flexbox Form Builder</title>
+  <link rel="stylesheet" href="/Styles/responsive.css">
+</head>
+<body>
+  <header>
+    <h1>Responsive Form Builder</h1>
+    <p>Dynamic multi-column form layout using Flexbox</p>
+  </header>
+
+  <main>
+    <form class="form-container">
+      <!-- Personal Information -->
+      <section class="form-section">
+        <h2>Personal Information</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" placeholder="Enter your first name" required>
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" placeholder="Enter your last name" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="example@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="+123 456 7890" required>
+          </div>
+        </div>
+      </section>
+
+      <!-- Address -->
+      <section class="form-section">
+        <h2>Address</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="street">Street</label>
+            <input type="text" id="street" placeholder="Street address" required>
+          </div>
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" id="city" placeholder="City name" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="state">State</label>
+            <input type="text" id="state" placeholder="State" required>
+          </div>
+          <div class="form-group">
+            <label for="zip">ZIP Code</label>
+            <input type="number" id="zip" placeholder="ZIP Code" required>
+          </div>
+        </div>
+      </section>
+
+      <!-- Account Setup -->
+      <section class="form-section">
+        <h2>Account Setup</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Choose a username" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter password" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" required>
+          </div>
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <select id="gender" required>
+              <option value="">Select gender</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- Submit -->
+      <div class="form-submit">
+        <button type="submit">Submit Form</button>
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    © 2025 Responsive Form Builder | All Rights Reserved
+  </footer>
+</body>
+</html>
+

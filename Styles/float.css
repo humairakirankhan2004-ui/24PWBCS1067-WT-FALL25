@@ -1,0 +1,78 @@
+/* Basic Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+.header {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 1.5em 0;
+}
+
+.container {
+  width: 90%;
+  margin: 20px auto;
+}
+
+/* Float Layout */
+.sidebar {
+  float: left;
+  width: 25%;
+  background: #f4f4f4;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.content {
+  float: left;
+  width: 70%;
+  margin-left: 5%;
+  box-sizing: border-box;
+}
+
+.float-img {
+  float: left;
+  margin: 10px 15px 10px 0;
+  width: 250px;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Clearfix to handle floats */
+.container::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar, .content {
+    float: none;
+    width: 100%;
+    margin: 0;
+  }
+
+  .float-img {
+    float: none;
+    display: block;
+    margin: 0 auto 20px auto;
+  }
+
+  .header {
+    position: static;
+  }
+}

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Portfolio Layout</title>
+
+  <style>
+    /* ===== GLOBAL STYLES ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #f5f6fa;
+      color: #2f3640;
+      display: grid;
+      grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+      grid-template-columns: 250px 1fr;
+      grid-template-rows: auto 1fr auto;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      grid-area: header;
+      background-color: #192a56;
+      color: white;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      z-index: 2;
+    }
+
+    header nav {
+      display: flex;
+      gap: 1.5rem;
+      z-index: 2;
+    }
+
+    header nav a:hover {
+      color: #44bd32;
+    }
+
+    /* Decorative circles */
+    .decor {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.15;
+    }
+
+    .decor.one {
+      background-color: #44bd32;
+      width: 120px;
+      height: 120px;
+      top: -40px;
+      right: -40px;
+    }
+
+    .decor.two {
+      background-color: #40739e;
+      width: 80px;
+      height: 80px;
+      bottom: -20px;
+      left: -20px;
+    }
+
+    /* ===== SIDEBAR ===== */
+    aside {
+      grid-area: sidebar;
+      background-color: #273c75;
+      color: white;
+      padding: 2rem 1rem;
+    }
+
+    aside h2 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    aside ul {
+      list-style: none;
+    }
+
+    aside li {
+      margin-bottom: 0.8rem;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    aside li:hover {
+      color: #44bd32;
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    main {
+      grid-area: main;
+      padding: 2rem;
+    }
+
+    main h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: #192a56;
+    }
+
+    /* FLEXBOX PROJECT GALLERY */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .project {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      flex: 1 1 calc(33.333% - 1rem);
+      min-width: 250px;
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .project-content {
+      padding: 1rem;
+      flex-grow: 1;
+    }
+
+    .project h3 {
+      margin-bottom: 0.5rem;
+      color: #192a56;
+      font-size: 1.2rem;
+    }
+
+    .project p {
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      grid-area: footer;
+      background-color: #192a56;
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    /* ===== RESPONSIVE MEDIA QUERIES ===== */
+
+    /* --- Tablet --- */
+    @media (max-width: 1023px) and (min-width: 768px) {
+      body {
+        grid-template-columns: 180px 1fr;
+      }
+
+      header h1 {
+        font-size: 1.7rem;
+      }
+
+      .project {
+        flex: 1 1 calc(50% - 1rem);
+      }
+    }
+
+    /* --- Mobile --- */
+    @media (max-width: 767px) {
+      body {
+        grid-template-areas:
+          "header"
+          "main"
+          "footer";
+        grid-template-columns: 1fr;
+      }
+
+      aside {
+        display: none;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      .gallery {
+        flex-direction: column;
+      }
+
+      .project {
+        flex: 1 1 100%;
+      }
+    }
+
+    /* --- Orientation Changes --- */
+    @media (orientation: landscape) {
+      header {
+        background-color: #006266;
+      }
+
+      footer {
+        background-color: #006266;
+      }
+    }
+
+    @media (orientation: portrait) {
+      header {
+        background-color: #192a56;
+      }
+
+      footer {
+        background-color: #192a56;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>My Portfolio</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Projects</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="decor one"></div>
+    <div class="decor two"></div>
+  </header>
+
+  <aside>
+    <h2>Quick Links</h2>
+    <ul>
+      <li>Web Design</li>
+      <li>App Development</li>
+      <li>Illustrations</li>
+      <li>Branding</li>
+    </ul>
+  </aside>
+
+  <main>
+    <h2>Featured Projects</h2>
+    <section class="gallery">
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1504691342899-4d92b50853e5?w=800" alt="Project 1">
+        <div class="project-content">
+          <h3>Creative Landing Page</h3>
+          <p>A modern and minimal landing page for a startup company.</p>
+        </div>
+      </div>
+
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800" alt="Project 2">
+        <div class="project-content">
+          <h3>Photography Portfolio</h3>
+          <p>Responsive gallery showcasing professional landscape photos.</p>
+        </div>
+      </div>
+
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?w=800" alt="Project 3">
+        <div class="project-content">
+          <h3>Mobile App UI</h3>
+          <p>Vibrant mobile UI design emphasizing simplicity and usability.</p>
+        </div>
+      </div>
+
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?w=800" alt="Project 4">
+        <div class="project-content">
+          <h3>Corporate Website</h3>
+          <p>Clean design for a business-focused website built using CSS Grid.</p>
+        </div>
+      </div>
+
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1503602642458-232111445657?w=800" alt="Project 5">
+        <div class="project-content">
+          <h3>Brand Identity</h3>
+          <p>Logo and brand guideline development for a modern company.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 My Portfolio | Designed with Grid, Flexbox & Media Queries
+  </footer>
+</body>
+</html>

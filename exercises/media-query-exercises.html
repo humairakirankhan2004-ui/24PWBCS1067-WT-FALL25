@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Query Demonstration Page</title>
+
+  <style>
+    /* ===== Global Styles ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f5f6fa;
+      color: #2f3640;
+      transition: all 0.3s ease;
+    }
+
+    header {
+      background-color: #273c75;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #40739e;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    main {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .breakpoint-info {
+      background: #dcdde1;
+      border-left: 5px solid #273c75;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      font-weight: 600;
+      border-radius: 6px;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .box {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    footer {
+      background-color: #273c75;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    /* ===== Typography Scaling ===== */
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* ===== Media Queries ===== */
+
+    /* Large Screens (Desktop ≥ 1024px) */
+    @media (min-width: 1024px) {
+      body {
+        background-color: #f5f6fa;
+      }
+
+      .breakpoint-info::after {
+        content: "Current Breakpoint: Desktop (≥1024px)";
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1.1rem;
+      }
+    }
+
+    /* Medium Screens (Tablet ≥ 768px and <1024px) */
+    @media (max-width: 1023px) and (min-width: 768px) {
+      body {
+        background-color: #dcdde1;
+      }
+
+      .breakpoint-info::after {
+        content: "Current Breakpoint: Tablet (768px–1023px)";
+      }
+
+      .content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      h2 {
+        font-size: 1.7rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+
+    /* Small Screens (Mobile <768px) */
+    @media (max-width: 767px) {
+      body {
+        background-color: #f0f0f0;
+      }
+
+      .breakpoint-info::after {
+        content: "Current Breakpoint: Mobile (<768px)";
+      }
+
+      .content {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 1.3rem;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+
+      /* Navigation change */
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #273c75;
+        width: 100%;
+        margin-top: 1rem;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Media Query Demo</h1>
+    <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+    <nav id="nav">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="breakpoint-info"></div>
+
+    <section class="content">
+      <div class="box">
+        <h2>Responsive Layout</h2>
+        <p>The layout changes from 3 columns on desktop, to 2 on tablets, and 1 on mobile screens.</p>
+      </div>
+
+      <div class="box">
+        <h2>Typography Scaling</h2>
+        <p>Font sizes increase gradually with larger screens to maintain readability and hierarchy.</p>
+      </div>
+
+      <div class="box">
+        <h2>Navigation Pattern</h2>
+        <p>The navigation converts into a hamburger menu on smaller screens for better usability.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Media Query Demonstration
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("nav");
+      nav.classList.toggle("active");
+    }
+  </script>
+</body>
+</html>
