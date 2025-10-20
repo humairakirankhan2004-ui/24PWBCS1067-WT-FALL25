@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selectors and Styling Example</title>
+  <style>
+   
+    body { font-family: Arial, sans-serif; background-color: #f5f5f5; margin: 20px; }          /* Element selector */
+    #main-title { color: #2c3e50; text-align: center; }                                         /* ID selector */
+    .highlight { color: #e74c3c; font-weight: bold; }                                           /* Class selector */
+    p { line-height: 1.5; }                                                                     /* Element selector */
+    h2, h3 { color: #34495e; }                                                                  /* Group selector */
+
+   
+    a[target="_blank"] { color: #27ae60; }                                                      /* Exact match */
+    input[type="text"] { border: 2px solid #2980b9; padding: 5px; }                             /* Attribute value */
+    img[alt~="flower"] { border: 3px solid #9b59b6; }                                           /* Word match */
+
+  
+    div > p { background-color: #ecf0f1; padding: 10px; }                                       /* Child combinator */
+    ul li { list-style: square; }                                                               /* Descendant combinator */
+    h2 + p { color: #16a085; }                                                                  /* Adjacent sibling combinator */
+    h3 ~ p { font-style: italic; }                                                              /* General sibling combinator */
+
+  
+    a:hover { color: #c0392b; text-decoration: underline; }                                     /* Hover state */
+    input:focus { background-color: #dff9fb; }                                                  /* Focus state */
+    li:first-child { color: #8e44ad; }                                                          /* First child */
+    li:last-child { color: #e67e22; }                                                           /* Last child */
+    p:nth-child(3) { font-size: 18px; }                                                         /* nth-child selector */
+
+  
+    p::first-letter { font-size: 24px; font-weight: bold; color: #2c3e50; }                     /* First letter */
+                                                                    /* After pseudo-element */
+  </style>
+</head>
+<body>
+
+  <h1 id="main-title">CSS Selectors Demonstration</h1>
+
+  <div>
+    <h2>Basic and Attribute Selectors</h2>
+    <p>This <span class="highlight">paragraph</span> demonstrates <strong>different selectors</strong> in CSS.</p>
+    <a href="https://example.com" target="_blank">Visit Example Site</a><br><br>
+    <input type="text" placeholder="Enter your name">
+  </div>
+
+  <div>
+    <h3>Combinators and Pseudo-Classes</h3>
+    <p>Hover over the link or focus on the input to see effects.</p>
+    <ul>
+      <li>First list item</li>
+      <li>Middle item</li>
+      <li>Last item</li>
+    </ul>
+    <p>Sibling paragraph affected by combinators and pseudo-elements.</p>
+  </div>
+
+  <img src="https://via.placeholder.com/150" alt="beautiful flower">
+
+</body>
+</html>

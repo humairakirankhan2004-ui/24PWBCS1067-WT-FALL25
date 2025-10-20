@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Background Demonstration</title>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #f7f7f7;
+      color: #222;
+    }
+
+    h1 {
+      text-align: center;
+      padding: 30px;
+      background-color: #34495e;
+      color: white;
+    }
+
+    section {
+      padding: 40px;
+      margin: 30px auto;
+      width: 80%;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      color: white;
+    }
+
+    /* 1. Solid color backgrounds */
+    .solid {
+      background-color: #3498db;
+    }
+
+    /* 2. Image backgrounds with repeat patterns */
+    .bg-repeat {
+      background-image: url('https://www.transparenttextures.com/patterns/hexellence.png');
+      background-repeat: repeat;
+      color: #222;
+    }
+
+    .bg-no-repeat {
+      background-image: url('https://picsum.photos/200');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      color: #222;
+    }
+
+    .bg-repeat-x {
+      background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+      background-repeat: repeat-x;
+      color: white;
+    }
+
+    /* 3. Linear and radial gradients */
+    .linear-gradient {
+      background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    }
+
+    .radial-gradient {
+      background: radial-gradient(circle, #1e3c72, #2a5298);
+    }
+
+    /* 4. Multiple background layers */
+    .multiple-bg {
+      background-image: 
+        url('https://picsum.photos/seed/pattern/150'),
+        linear-gradient(45deg, rgba(255,0,150,0.6), rgba(0,204,255,0.6));
+      background-blend-mode: overlay;
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* 5. Background blend modes */
+    .blend-mode {
+      background-image:
+        url('https://picsum.photos/seed/blend/800/400'),
+        linear-gradient(120deg, rgba(255,255,0,0.5), rgba(0,255,255,0.5));
+      background-blend-mode: multiply;
+      background-size: cover;
+      background-position: center;
+    }
+
+    p {
+      background: rgba(255,255,255,0.6);
+      color: #222;
+      padding: 10px 15px;
+      border-radius: 8px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Background Demonstration Page</h1>
+
+  <section class="solid">
+    <h2>Solid Color Background</h2>
+    <p>This section has a simple solid color background using <code>background-color</code>.</p>
+  </section>
+
+  <section class="bg-repeat">
+    <h2>Image Background (Repeat)</h2>
+    <p>This background uses a small repeating texture pattern.</p>
+  </section>
+
+  <section class="bg-no-repeat">
+    <h2>Image Background (No Repeat)</h2>
+    <p>This image is centered and not repeated.</p>
+  </section>
+
+  <section class="bg-repeat-x">
+    <h2>Image Background (Repeat X)</h2>
+    <p>This background repeats only horizontally.</p>
+  </section>
+
+  <section class="linear-gradient">
+    <h2>Linear Gradient Background</h2>
+    <p>This section uses a diagonal linear gradient from orange to pink.</p>
+  </section>
+
+  <section class="radial-gradient">
+    <h2>Radial Gradient Background</h2>
+    <p>This section uses a circular gradient from light blue to dark blue.</p>
+  </section>
+
+  <section class="multiple-bg">
+    <h2>Multiple Background Layers</h2>
+    <p>This background combines an image and a semi-transparent gradient overlay.</p>
+  </section>
+
+  <section class="blend-mode">
+    <h2>Background Blend Mode</h2>
+    <p>This section demonstrates the <code>multiply</code> blend mode with an image and gradient.</p>
+  </section>
+
+</body>
+</html>
