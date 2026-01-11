@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button and Form Styling - CS 224L</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../Lab03-css/Styles/components.css">
+  <link rel="stylesheet" href="../Lab03-css/Styles/effects.css">
+</head>
+<body>
+  <header>
+    <h1>CS 224L - Web Technologies</h1>
+    <h2>Button Styling Collection & Form Styling</h2>
+    <p>Lecturer: Mr. Mohammad<br>Department of Computer Science, UET Peshawar</p>
+  </header>
+
+  <!-- Task 5: Button Styling Collection -->
+  <section class="button-section">
+    <h3>Task 5: Button Styling Collection</h3>
+
+    <div class="button-group">
+      <button class="btn btn-small">Small Button</button>
+      <button class="btn btn-medium">Medium Button</button>
+      <button class="btn btn-large">Large Button</button>
+    </div>
+
+    <div class="button-group">
+      <button class="btn btn-primary">Primary</button>
+      <button class="btn btn-secondary">Secondary</button>
+      <button class="btn btn-success">Success</button>
+      <button class="btn btn-danger">Danger</button>
+    </div>
+
+    <div class="button-group">
+      <button class="btn btn-rounded">Rounded</button>
+      <button class="btn btn-pill">Pill Shape</button>
+      <button class="btn btn-disabled" disabled>Disabled</button>
+    </div>
+  </section>
+
+  <!-- Task 6: Form Styling -->
+  <section class="form-section">
+    <h3>Task 6: Registration Form</h3>
+    <form class="styled-form" id="registrationForm">
+      <label>Full Name</label>
+      <input type="text" placeholder="Enter your full name" required>
+
+      <label>Email Address</label>
+      <input type="email" placeholder="Enter your email" required>
+
+      <label>Password</label>
+      <input type="password" placeholder="Enter password" required>
+
+      <label>Department</label>
+      <select required>
+        <option value="">Select Department</option>
+        <option>Computer Science</option>
+        <option>Software Engineering</option>
+        <option>Electrical Engineering</option>
+      </select>
+
+      <button type="submit" class="btn btn-primary">Register</button>
+      <p class="success-message"> Registration successful!</p>
+      <p class="error-message"> Please fill in all fields correctly.</p>
+    </form>
+    <nav>
+  <div class="nav-container">
+    <div class="logo">UET Peshawar</div>
+    <div class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li>
+        <a href="#">Services ▾</a>
+        <ul class="dropdown">
+          <li><a href="#">Web Design</a></li>
+          <li><a href="#">App Development</a></li>
+          <li><a href="#">SEO</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+<section class="card-container">
+  <div class="card">
+    <img src="https://via.placeholder.com/400x200" >
+    <div class="card-content">
+      <h3>Web Design Package</h3>
+      <p>Modern, responsive websites built with HTML, CSS, and JavaScript.</p>
+      <button class="btn">Learn More</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/400x200" >
+    <div class="card-content">
+      <h3>App Development</h3>
+      <p>We build efficient mobile apps tailored to your business needs.</p>
+      <button class="btn">Get Started</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/400x200" >
+    <div class="card-content">
+      <h3>SEO Optimization</h3>
+      <p>Improve your search rankings and attract more visitors.</p>
+      <button class="btn">Explore</button>
+    </div>
+  </div>
+</section>
+
+  </section>
+</body>
+</html>

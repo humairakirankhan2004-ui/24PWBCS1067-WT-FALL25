@@ -1,0 +1,137 @@
+/* General Styles */
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #f6f7fb;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+h1 {
+  color: #004aad;
+}
+
+section {
+  background: #fff;
+  padding: 30px;
+  margin: 20px auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-width: 700px;
+}
+
+/* ============================= */
+/* TASK 5: Button Styling */
+/* ============================= */
+.button-group {
+  margin: 15px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.btn {
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: #fff;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Sizes */
+.btn-small { padding: 6px 12px; font-size: 14px; }
+.btn-medium { padding: 10px 18px; font-size: 16px; }
+.btn-large { padding: 14px 24px; font-size: 18px; }
+
+/* Colors */
+.btn-primary { background: linear-gradient(45deg, #007bff, #00c6ff); }
+.btn-secondary { background: linear-gradient(45deg, #6c757d, #adb5bd); }
+.btn-success { background: linear-gradient(45deg, #28a745, #63d471); }
+.btn-danger { background: linear-gradient(45deg, #dc3545, #ff6a6a); }
+
+/* Shapes */
+.btn-rounded { border-radius: 10px; }
+.btn-pill { border-radius: 50px; }
+
+/* Disabled State */
+.btn-disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  color: #666;
+  box-shadow: none;
+}
+
+/* Hover & Focus */
+.btn:hover:not(:disabled),
+.btn:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+}
+
+/* ============================= */
+/* TASK 6: Form Styling */
+/* ============================= */
+.styled-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.styled-form label {
+  font-weight: 600;
+}
+
+.styled-form input,
+.styled-form select {
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.styled-form input:focus,
+.styled-form select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0,123,255,0.5);
+  outline: none;
+}
+
+/* Button inside form */
+.styled-form .btn {
+  align-self: flex-start;
+  background: linear-gradient(45deg, #007bff, #00c6ff);
+}
+
+/* Error and Success Messages */
+.success-message, .error-message {
+  display: none;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.success-message {
+  color: green;
+}
+
+.error-message {
+  color: red;
+}
+
+/* Example animation for success */
+.styled-form.submitted .success-message {
+  display: block;
+}
+
+.styled-form.error .error-message {
+  display: block;
+}
